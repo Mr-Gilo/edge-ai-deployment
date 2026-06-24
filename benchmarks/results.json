@@ -1,0 +1,44 @@
+[
+  {
+    "model": "Sklearn RandomForest (PKL)",
+    "single_latency_ms": {
+      "mean": 20.63,
+      "p50": 17.975,
+      "p95": 29.18,
+      "p99": 31.101
+    },
+    "batch_inference_ms": 29.04,
+    "throughput_samples_per_sec": 20663.0,
+    "memory_delta_mb": 0.27,
+    "accuracy": 0.78,
+    "n_samples": 600
+  },
+  {
+    "model": "ONNX FP32",
+    "single_latency_ms": {
+      "mean": 0.014,
+      "p50": 0.014,
+      "p95": 0.015,
+      "p99": 0.022
+    },
+    "batch_inference_ms": 3.06,
+    "throughput_samples_per_sec": 195995.0,
+    "memory_delta_mb": 0.07,
+    "accuracy": 0.78,
+    "n_samples": 600
+  },
+  {
+    "model": "ONNX INT8 (quantised)",
+    "single_latency_ms": {
+      "mean": 0.013,
+      "p50": 0.013,
+      "p95": 0.014,
+      "p99": 0.019
+    },
+    "batch_inference_ms": 2.95,
+    "throughput_samples_per_sec": 203583.0,
+    "memory_delta_mb": 0.05,
+    "accuracy": 0.78,
+    "n_samples": 600
+  }
+]
