@@ -1,0 +1,36 @@
+{
+  "model_type": "RandomForestClassifier",
+  "n_estimators": 100,
+  "max_depth": 8,
+  "n_features": 14,
+  "feature_names": [
+    "sensor_mean",
+    "sensor_std",
+    "sensor_max",
+    "sensor_min",
+    "sensor_roc",
+    "equipment_age",
+    "days_since_maintenance",
+    "pressure_rating",
+    "n_prior_incidents",
+    "is_vpn",
+    "geo_mismatch",
+    "high_velocity",
+    "after_hours",
+    "repeated_failures"
+  ],
+  "classes": [
+    "critical",
+    "high",
+    "low",
+    "medium"
+  ],
+  "accuracy": 0.7183,
+  "model_sizes_mb": {
+    "sklearn_pkl": 2.136,
+    "onnx_fp32": 1.203,
+    "onnx_int8": 1.203
+  },
+  "size_reduction_pct": -0.0,
+  "onnx_verified": true
+}

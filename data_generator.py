@@ -13,7 +13,7 @@ SEED = 42
 np.random.seed(SEED)
 
 
-def generate_safety_dataset(n_samples: int = 2000) -> pd.DataFrame:
+def generate_safety_dataset(n_samples: int = 3000) -> pd.DataFrame:
     """
     Generate synthetic safety incident features for risk classification.
 
@@ -74,7 +74,7 @@ def generate_safety_dataset(n_samples: int = 2000) -> pd.DataFrame:
         high_velocity * 2 +
         after_hours * 1 +
         repeated_failures * 2 +
-        np.random.randint(0, 3, n_samples)  # noise
+        np.random.randint(0, 4, n_samples)  # noise
     )
 
     def score_to_label(s):
@@ -82,7 +82,7 @@ def generate_safety_dataset(n_samples: int = 2000) -> pd.DataFrame:
             return "low"
         elif s <= 7:
             return "medium"
-        elif s <= 12:
+        elif s <= 11:
             return "high"
         else:
             return "critical"

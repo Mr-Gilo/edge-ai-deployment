@@ -59,13 +59,24 @@ def train_model(X_train, y_train):
 def evaluate_model(model, X_test, y_test, le):
     y_pred = model.predict(X_test)
     acc = accuracy_score(y_test, y_pred)
+
+    #Only include classes present in the test set
+    present_classes = sorted(set(y_test) | set(y_pred))
+    present_names = [le.classes_[i] for i in present_classes]
+
     report = classification_report(
         y_test, y_pred,
-        target_names=le.classes_,
+        labels=present_classes,
+        target_names=present_names,
         output_dict=True
     )
     print(f"\nModel Accuracy: {acc:.4f}")
-    print(classification_report(y_test, y_pred, target_names=le.classes_))
+    print(classification_report(
+        y_test, y_pred,
+        labels=present_classes,
+        target_names=present_names
+        )
+    )
     return acc, report
 
 
@@ -77,7 +88,7 @@ def export_to_onnx(model, n_features, model_name="risk_classifier"):
     onnx_model = convert_sklearn(
         model,
         initial_types=initial_type,
-        target_opset=12
+        target_opset=15
     )
 
     onnx_path = f"models/{model_name}.onnx"
@@ -134,10 +145,20 @@ def verify_onnx_outputs(model, onnx_path, X_test, le):
 
     return matches == 20
 
+def numpy_encoder(obj):
+    if isinstance(obj, (np.bool_, bool)):
+        return bool(obj)
+    if isinstance(obj, np.integer):
+        return int(obj)
+    if isinstance(obj, np.floating):
+        return float(obj)
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
+    raise TypeError(f"Object of type {obj.__class__.__name__} is not JSON serializable")
 
 def save_metadata(results: dict):
     with open("models/model_metadata.json", "w") as f:
-        json.dump(results, f, indent=2)
+        json.dump(results, f, indent=2, default=numpy_encoder)
     print(f"\nMetadata saved to models/model_metadata.json")
 
 
