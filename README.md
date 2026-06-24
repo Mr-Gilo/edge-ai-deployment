@@ -134,16 +134,6 @@ Response:
 }
 ```
 
-## Applying to Court Pack Analysis
-
-The same export pipeline works for any sklearn or PyTorch model.
-For Whichrate's court pack analysis:
-
-1. Train a document classifier on labelled claim examples
-2. Export to ONNX INT8 for deployment on Whichrate's local servers
-3. Serve via FastAPI with no cloud dependency
-4. Update the model by re-training and re-exporting — no infrastructure changes
-
 ## Related Projects
 
 - [pdf-extractor](https://github.com/Mr-Gilo/pdf-extractor)
