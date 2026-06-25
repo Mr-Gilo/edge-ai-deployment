@@ -2,28 +2,28 @@
   {
     "model": "Sklearn RandomForest (PKL)",
     "single_latency_ms": {
-      "mean": 20.63,
-      "p50": 17.975,
-      "p95": 29.18,
-      "p99": 31.101
+      "mean": 16.507,
+      "p50": 16.302,
+      "p95": 16.967,
+      "p99": 17.584
     },
-    "batch_inference_ms": 29.04,
-    "throughput_samples_per_sec": 20663.0,
-    "memory_delta_mb": 0.27,
+    "batch_inference_ms": 26.71,
+    "throughput_samples_per_sec": 22465.0,
+    "memory_delta_mb": 0.18,
     "accuracy": 0.78,
     "n_samples": 600
   },
   {
     "model": "ONNX FP32",
     "single_latency_ms": {
-      "mean": 0.014,
-      "p50": 0.014,
-      "p95": 0.015,
-      "p99": 0.022
+      "mean": 0.013,
+      "p50": 0.013,
+      "p95": 0.014,
+      "p99": 0.015
     },
-    "batch_inference_ms": 3.06,
-    "throughput_samples_per_sec": 195995.0,
-    "memory_delta_mb": 0.07,
+    "batch_inference_ms": 2.53,
+    "throughput_samples_per_sec": 237220.0,
+    "memory_delta_mb": 0.06,
     "accuracy": 0.78,
     "n_samples": 600
   },
@@ -33,10 +33,10 @@
       "mean": 0.013,
       "p50": 0.013,
       "p95": 0.014,
-      "p99": 0.019
+      "p99": 0.014
     },
-    "batch_inference_ms": 2.95,
-    "throughput_samples_per_sec": 203583.0,
+    "batch_inference_ms": 2.5,
+    "throughput_samples_per_sec": 240029.0,
     "memory_delta_mb": 0.05,
     "accuracy": 0.78,
     "n_samples": 600
